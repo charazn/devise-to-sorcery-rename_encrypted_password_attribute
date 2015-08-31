@@ -1,0 +1,26 @@
+= link_to "Log Out", destroy_user_session_path, method: :delete
+
+h1 All users
+
+table
+  thead
+    tr
+      th ID
+      th Email
+      th Crypted password
+      th Salt
+      th
+      th
+
+  tbody
+    - @users.each do |user|
+      tr
+        td = user.id
+        td = user.email
+        td = user.encrypted_password
+        td = user.salt
+        td = link_to 'Show', user
+        td = link_to 'Edit', edit_user_path(user)
+
+p = link_to "Home", root_path
+p = link_to 'New User', new_user_path

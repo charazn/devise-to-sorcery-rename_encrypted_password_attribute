@@ -30,6 +30,7 @@ module DeviseToSorceryRenameEncryptedPasswordAttribute
       g.assets false
       # g.helper false # Have to comment out as devise cannot generate helper
       # g.stylesheets false # Not necessary as already skip assets
+      g.jbuilder false
     end
 
   end
