@@ -1,15 +1,12 @@
 Rails.application.routes.draw do
 
-  get 'user_sessions/new'
-
-  get 'user_sessions/crete'
-
-  get 'user_sessions/destroy'
-
-  resources :users
   root 'home#index'
   # devise_for :users
 
-  get '/show' => 'home#show'
+  resources :user_sessions
+  resources :users
+
+  get 'login' => 'user_sessions#new', :as => :login
+  post 'logout' => 'user_sessions#destroy', :as => :logout
 
 end
