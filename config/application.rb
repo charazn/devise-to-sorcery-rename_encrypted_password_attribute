@@ -28,7 +28,7 @@ module DeviseToSorceryRenameEncryptedPasswordAttribute
       # g.template_engine nil #to skip views
       g.test_framework nil #to skip test framework
       g.assets false
-      g.helper false
+      # g.helper false # Have to comment out as devise cannot generate helper
       # g.stylesheets false # Not necessary as already skip assets
     end
 
