@@ -1,13 +1,11 @@
 class SorceryCore < ActiveRecord::Migration
-  def change
-    create_table :users do |t|
-      t.string :email,            :null => false
-      t.string :crypted_password
-      t.string :salt
+  def up
+    rename_column :users, :encrypted_password, :crypted_password
+    add_column :users, :salt, :string
+  end
 
-      t.timestamps
-    end
-
-    add_index :users, :email, unique: true
+  def down
+    rename_column :users, :crypted_password, :encrypted_password
+    remove_column :users, :salt, :string
   end
 end
