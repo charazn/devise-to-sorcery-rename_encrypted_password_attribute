@@ -1,0 +1,21 @@
+html
+  head
+    title DeviseToSorceryRenameEncryptedPasswordAttribute
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+
+  body
+    div
+      - if user_signed_in?
+        = current_user.email
+      - else
+        = link_to "Log In", new_user_session_path
+        '  |  
+        = link_to "Sign Up", new_user_registration_path
+
+    div
+      p#notice = flash[:notice]
+      p#alert = flash[:alert]
+
+    = yield
